@@ -14,6 +14,8 @@ class ImagePipeline {
         image_transport::Subscriber sub;
     public:
         ImagePipeline(ros::NodeHandle& n);
+        void loadObjects(Boxes boxes); // new function to load descriptors for each object
         void imageCallback(const sensor_msgs::ImageConstPtr& msg);
         int getTemplateID(Boxes& boxes);
+        cv::Mat getImg();
 };
